@@ -1,0 +1,165 @@
+<html>
+    <head>
+        <style>
+            html {
+                scroll-behavior: smooth;
+            }
+            body{
+                margin: 0;
+              
+            }
+            @font-face {
+                font-family: Montserrat;
+                src: url(fonts/Montserrat.ttf);
+            }
+            #start{
+                background-image:url("images/start-bg_final.jpg");
+                width:100%;
+                height:100vh;  
+                z-index: -999;
+                
+            }
+            #start-text{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 100vh;
+                width: 100%;
+                border: none;
+                font-size: 40px;
+                font-family: Montserrat;
+                color: white;
+                text-align: center;
+                
+            }
+            #sub-heading{
+                font-size: 40px;
+            }
+            #my-photo{
+                border-radius: 50%;
+                width: 300px;
+                height: 300px;
+                
+            }
+            #about-me{
+                background-color: navy;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 700px;
+                width: 100%;
+                border: none;
+                font-size: 20px;
+                font-family: Montserrat;
+                color: white;
+                text-align: center;
+                 
+            }
+            #main-menu{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 5vh;
+                width: 100%;
+                font-size: 15px;
+                font-family: Montserrat;
+                color: white;
+                text-align: center;
+                position: fixed;
+                top:0;
+                margin-top: 5px;
+            }
+            .main-menu-sub{
+                
+                height: 100%;
+                width: 25%;
+                position:absolute;
+                
+            }
+            a{
+                text-decoration: none;
+                color: white;
+            }
+            #contact{
+                
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                
+                width: 100%;
+                border: none;
+                font-size: 20px;
+                font-family: Montserrat;
+                color: white;
+                text-align: center;
+            }
+            #my-interests{
+                background-image: url("images/interests-bg.jpg");
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: 700px;
+                width: 100%;
+                border: none;
+                font-size: 20px;
+                font-family: Montserrat;
+                color: white;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main-menu">
+            <div class="main-menu-sub" style="left:0%; ">
+                <a href="#start"> R A V I N D U  |  W E G I R I Y A </a>
+                <hr>
+            </div>
+            <div class="main-menu-sub" style="left:25%">
+                <a href="#about-me"> About Me </a>
+                <hr>
+            </div>
+            <div class="main-menu-sub" style="left:50%">
+                <a href="#my-interests"> My Interests </a>
+                <hr>
+            </div>
+            <div class="main-menu-sub" style="left:75%">
+                <a href="#contact"> Contact Me </a>
+                <hr>
+            </div>
+            
+        </div>
+        <div id="start">
+            <div id="start-text">
+                <h1>Hello!</h1>
+                <h1>Welcome to My Personal Profile</h1>
+                
+            </div>
+                
+        </div>
+        <div id="about-me">
+            
+            <p id="sub-heading">About Me</p>
+            <img id="my-photo" src="images/me.jpg"><br>
+            <p>I am Ravindu Wegiriya from Moratuwa. In simple terms I'm a Tech enthusiast.<br> I schooled at S. Thomas' College, Mount Lavinia. Currently, I'm a Computer Science Undergraduate at the University of Colombo School of Computing.</p>
+        </div>
+        <div id="my-interests">
+            <p id="sub-heading">My Interests</p>
+            <p>The field of ICT was my main interest since childhood. I have learnt many aspects relating to ICT through various courses and self-study.<br><br>The main areas in Computing, that i show a higher interest are;<br><br><ul><li style="text-align: left;">Mobile Application Development</li><li style="text-align: left;">Web Development</li><li style="text-align: left;">Internet of Things</li></ul><br><br> During my free time, I prefer to play computer games. I mostly prefer open world mission-based games and racing games.<br><br>When talking about sports, I love to watch and play Cricket</p>
+        </div>
+        <div id="contact">
+            <div style="width: 40%; height: 400px; background-color: darkblue; position: absolute; left:0%">
+                <p id="sub-heading" style="margin-top: 85px;">Contact Me</p>
+                <p>Want to contact me?<br><br>Feel free to drop an email at<br><br>mail@ravindu.tech</p>
+            </div>
+            <div style="width: 60%; height: 400px;  position: absolute; left:40%">
+                <img src="images/contact.jpg" style="width: 100%; height: 100%;">
+            </div>
+        </div>
+        
+    </body>
+</html>
