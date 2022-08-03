@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <title>Dice Game</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">    </head>
+    <body>
+        <div class="card text-center" style="margin: 2%;">
+            <div class="card-header">
+                <h5 class="card-title">The Game of Dice</h5>
+            </div>
+            <div class="card-body">
+              
+                <img src="media/Dice_Images/dice_1.png" class="rounded float-start" alt="..." width="20%" style="margin-left:200px">
+                <img src="media/Dice_Images/dice_2.png" class="rounded float-end" alt="..." width="20%" style="margin-right:200px">
+     
+            </div>
+            <div class="card-footer text-muted">
+              <form>
+                <input id="roll_btn" type="button" class="btn btn-primary" value="Roll Dice" onclick="rollDice()">
+              </form>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-sm-6" >
+              <div id = "player1card" class="card" style="width: 25rem; margin: auto; margin-top: 0;">
+                <img src="media/person.png" class="card-img-top" alt="..." style="width: 50%; align-self: center;">
+                <div class="card-body" >
+                    <div class="card-header">
+                        <h5 class="card-title"><span id="player1name"> Player 2 - Score</span>   <span id="player1turn" class="badge rounded-pill text-bg-success">Your Turn</span></h5>
+                        
+                      </div>
+                     
+                 
+                    <p id="player1score" style=" font-size: 75; margin-bottom: 0;">00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6" >
+                <div id = "player2card" class="card" style="width: 25rem; margin: auto; margin-top: 0; ">
+                  <img src="media/person.png" class="card-img-top" alt="..." style="width: 50%; align-self: center;">
+                  <div class="card-body" >
+                      <div class="card-header">
+                          <h5 class="card-title"><span id="player2name"> Player 2 - Score</span>  <span id="player2turn" class="badge rounded-pill text-bg-success"></span></h5>
+                        </div>
+                       
+                   
+                      <p id="player2score" style="font-size: 75; margin-bottom: 0;">00</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <script>
+            var player1name=prompt("Enter Player 1 Name");
+            var player2name=prompt("Enter Player 2 Name");
+            document.getElementById("player1name").innerHTML=player1name+" - Score";
+            document.getElementById("player2name").innerHTML=player2name+" - Score";
+            var player_turn=1;
+            function rollDice() {
+              var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+              var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+              var image1 = "media/Dice_Images/dice_" + randomNumber1 + ".png";
+              var image2 = "media/Dice_Images/dice_" + randomNumber2 + ".png";
+              document.querySelector(".float-start").setAttribute("src", image1);
+              document.querySelector(".float-end").setAttribute("src", image2);
+              if(player_turn==1){
+                if(randomNumber1==1 && randomNumber2==1){
+                  document.querySelector("#player1score").innerHTML="00";
+                  document.querySelector("#player2turn").innerHTML="Your Turn";
+                  document.querySelector("#player1turn").innerHTML="";
+                  player_turn=2;
+                  return false;
+                }
+                var player_1_curr_score = document.getElementById("player1score").innerHTML;
+                var player_1_new_score = parseInt(player_1_curr_score) + randomNumber1 + randomNumber2;
+                document.getElementById("player1score").innerHTML = player_1_new_score;
+                if(player_1_new_score>=100){
+                  document.getElementById("player1card").classList.add("text-bg-success");
+                  disable(1)
+                  return false;
+                  
+                }
+                if(randomNumber1==randomNumber2){
+                  return false;
+                }
+                document.querySelector("#player2turn").innerHTML="Your Turn";
+                document.querySelector("#player1turn").innerHTML="";
+                player_turn=2;
+              }
+              else{
+                if(randomNumber1==1 && randomNumber2==1){
+                  document.querySelector("#player1score").innerHTML="00";
+                  document.querySelector("#player1turn").innerHTML="Your Turn";
+                  document.querySelector("#player2turn").innerHTML="";
+                  player_turn=1;
+                  return false;
+                }
+                var player_2_curr_score = document.getElementById("player2score").innerHTML;
+                var player_2_new_score = parseInt(player_2_curr_score) + randomNumber1 + randomNumber2;
+                document.getElementById("player2score").innerHTML = player_2_new_score;
+                if(player_2_new_score>=100){
+                  document.getElementById("player2card").classList.add("text-bg-success");
+                  disable(2)
+                  return false;
+                }
+                if(randomNumber1==randomNumber2){
+                  return false;
+                }
+                document.querySelector("#player1turn").innerHTML="Your Turn";
+                document.querySelector("#player2turn").innerHTML="";
+                player_turn=1;
+              }
+            }
+            function disable(i){
+              document.getElementById("roll_btn").disabled = true;
+              document.getElementById("roll_btn").value="Game Over";
+              document.getElementById("roll_btn").classList.add("btn-danger");
+              if(i==1){
+                document.getElementById("player1turn").innerHTML="WINNER";
+                document.getElementById("player1turn").classList.remove("text-bg-success");
+                document.getElementById("player1turn").classList.add("text-bg-danger");
+                document.getElementById("player2turn").innerHTML="";
+              }
+              else if(i==2){
+                document.getElementById("player2turn").innerHTML="WINNER";
+                document.getElementById("player2turn").classList.remove("text-bg-success");
+                document.getElementById("player2turn").classList.add("text-bg-danger");
+                document.getElementById("player1turn").innerHTML="";
+              }
+              
+              
+            }
+          </script>
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    </body>
+</html>
