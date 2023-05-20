@@ -1,165 +1,96 @@
-<html>
-    <head>
-        <style>
-            html {
-                scroll-behavior: smooth;
-            }
-            body{
-                margin: 0;
-              
-            }
-            @font-face {
-                font-family: Montserrat;
-                src: url(fonts/Montserrat.ttf);
-            }
-            #start{
-                background-image:url("images/start-bg_final.jpg");
-                width:100%;
-                height:100vh;  
-                z-index: -999;
-                
-            }
-            #start-text{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                height: 100vh;
-                width: 100%;
-                border: none;
-                font-size: 40px;
-                font-family: Montserrat;
-                color: white;
-                text-align: center;
-                
-            }
-            #sub-heading{
-                font-size: 40px;
-            }
-            #my-photo{
-                border-radius: 50%;
-                width: 300px;
-                height: 300px;
-                
-            }
-            #about-me{
-                background-color: navy;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                height: 700px;
-                width: 100%;
-                border: none;
-                font-size: 20px;
-                font-family: Montserrat;
-                color: white;
-                text-align: center;
-                 
-            }
-            #main-menu{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                height: 5vh;
-                width: 100%;
-                font-size: 15px;
-                font-family: Montserrat;
-                color: white;
-                text-align: center;
-                position: fixed;
-                top:0;
-                margin-top: 5px;
-            }
-            .main-menu-sub{
-                
-                height: 100%;
-                width: 25%;
-                position:absolute;
-                
-            }
-            a{
-                text-decoration: none;
-                color: white;
-            }
-            #contact{
-                
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                
-                width: 100%;
-                border: none;
-                font-size: 20px;
-                font-family: Montserrat;
-                color: white;
-                text-align: center;
-            }
-            #my-interests{
-                background-image: url("images/interests-bg.jpg");
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-                height: 700px;
-                width: 100%;
-                border: none;
-                font-size: 20px;
-                font-family: Montserrat;
-                color: white;
-                text-align: center;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="main-menu">
-            <div class="main-menu-sub" style="left:0%; ">
-                <a href="#start"> R A V I N D U  |  W E G I R I Y A </a>
-                <hr>
-            </div>
-            <div class="main-menu-sub" style="left:25%">
-                <a href="#about-me"> About Me </a>
-                <hr>
-            </div>
-            <div class="main-menu-sub" style="left:50%">
-                <a href="#my-interests"> My Interests </a>
-                <hr>
-            </div>
-            <div class="main-menu-sub" style="left:75%">
-                <a href="#contact"> Contact Me </a>
-                <hr>
-            </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TGB Price Checker</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+   
+        <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1 ">TGB Price Checker</span>
+
+    </div>
+    
+  </div>
+</nav>
+<div class="text-center" style="align-items: center;">
+    <div style="margin:5%; margin-top: 2%;">
+      <b><span>Dollar Rate - Rs. 330</span></b><br><br><br>
+        <div class="mb-3" >
+            <label for="dollarPrice" class="form-label">Dollar Price</label>
+            <input type="text" class="form-control" id="dollarPrice" placeholder="Enter Dollar Price Here">
             
         </div>
-        <div id="start">
-            <div id="start-text">
-                <h1>Hello!</h1>
-                <h1>Welcome to My Personal Profile</h1>
-                
-            </div>
-                
-        </div>
-        <div id="about-me">
+    
+    
+        <button type="submit" class="btn btn-primary" onclick="calculatePrice()">Check Price</button>
+     
+    </div>
+</div>
+<div class="card text-center">
+  <div class="card-header">
+    Cost Price
+  </div>
+  <div class="card-body">
+    <h5 class="card-title" id="costPrice">Rs. 0</h5>
+    
+  </div>
+
+</div>
+<br>
+<div class="card text-center">
+  <div class="card-header">
+    Selling Price
+  </div>
+  <div class="card-body">
+    <h5 class="card-title" id="sellingPrice">Rs. 0</h5>
+  
+  </div>
+ 
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+        function calculatePrice(){
+            var dollarPrice = document.getElementById("dollarPrice").value;
+            if(isNaN(dollarPrice)){
+                alert("Please enter a valid number");
+                return;
+            }
+            var costPrice = dollarPrice * 330 * 1.15;
+            if(dollarPrice>20){
+                var sellingPrice = dollarPrice * 330 * 1.28;
+            }else if(dollarPrice>13){
+                var sellingPrice = dollarPrice * 330 * 1.35;
+            }else if(dollarPrice>9){
+                var sellingPrice = dollarPrice * 330 * 1.4;
+            }else if(dollarPrice>6){
+                var sellingPrice = dollarPrice * 330 * 1.45;
+            }else if(dollarPrice>4.5){
+                var sellingPrice = dollarPrice * 330 * 1.5;
+            }else if(dollarPrice>2.5){
+                var sellingPrice = dollarPrice * 330 * 1.6;
+            }else{
+                var sellingPrice = dollarPrice * 330 * 1.7;
+            }
+            document.getElementById("costPrice").innerHTML = "Rs. " + Math.round(costPrice);
+
+            // discount=sellingPrice*0.1;      //For Discount
+            // if(discount>1000)
+            // {
+            //     discount=1000;
+            // }
+            // discountAdjustmentMarkup = discount*0.6;
+            // sellingPrice = sellingPrice + discountAdjustmentMarkup;
+
             
-            <p id="sub-heading">About Me</p>
-            <img id="my-photo" src="images/me.jpg"><br>
-            <p>I am Ravindu Wegiriya from Moratuwa. In simple terms I'm a Tech enthusiast.<br> I schooled at S. Thomas' College, Mount Lavinia. Currently, I'm a Computer Science Undergraduate at the University of Colombo School of Computing.</p>
-        </div>
-        <div id="my-interests">
-            <p id="sub-heading">My Interests</p>
-            <p>The field of ICT was my main interest since childhood. I have learnt many aspects relating to ICT through various courses and self-study.<br><br>The main areas in Computing, that i show a higher interest are;<br><br><ul><li style="text-align: left;">Mobile Application Development</li><li style="text-align: left;">Web Development</li><li style="text-align: left;">Internet of Things</li></ul><br><br> During my free time, I prefer to play computer games. I mostly prefer open world mission-based games and racing games.<br><br>When talking about sports, I love to watch and play Cricket</p>
-        </div>
-        <div id="contact">
-            <div style="width: 40%; height: 400px; background-color: darkblue; position: absolute; left:0%">
-                <p id="sub-heading" style="margin-top: 85px;">Contact Me</p>
-                <p>Want to contact me?<br><br>Feel free to drop an email at<br><br>mail@ravindu.tech</p>
-            </div>
-            <div style="width: 60%; height: 400px;  position: absolute; left:40%">
-                <img src="images/contact.jpg" style="width: 100%; height: 100%;">
-            </div>
-        </div>
-        
-    </body>
+
+            document.getElementById("sellingPrice").innerHTML = "Rs. " + Math.round(sellingPrice);
+        }
+    </script>
+  </body>
 </html>
