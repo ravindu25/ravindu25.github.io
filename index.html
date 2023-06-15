@@ -18,7 +18,7 @@
 </nav>
 <div class="text-center" style="align-items: center;">
     <div style="margin:5%; margin-top: 2%;">
-      <b><span>Dollar Rate - Rs. 325</span></b><br><br><br>
+      <b><span>Dollar Rate - Rs. 335</span></b><br><br><br>
         <div class="mb-3" >
             <label for="dollarPrice" class="form-label">Dollar Price</label>
             <input type="text" class="form-control" id="dollarPrice" placeholder="Enter Dollar Price Here">
@@ -61,21 +61,21 @@
                 alert("Please enter a valid number");
                 return;
             }
-            var costPrice = dollarPrice * 325 * 1.15;
+            var costPrice = dollarPrice * 335 * 1.15;
             if(dollarPrice>20){
-                var sellingPrice = dollarPrice * 325 * 1.28;
+                var sellingPrice = dollarPrice * 335 * 1.28;
             }else if(dollarPrice>13){
-                var sellingPrice = dollarPrice * 325 * 1.35;
+                var sellingPrice = dollarPrice * 335 * 1.35;
             }else if(dollarPrice>9){
-                var sellingPrice = dollarPrice * 325 * 1.4;
+                var sellingPrice = dollarPrice * 335 * 1.4;
             }else if(dollarPrice>6){
-                var sellingPrice = dollarPrice * 325 * 1.45;
+                var sellingPrice = dollarPrice * 335 * 1.45;
             }else if(dollarPrice>4.5){
-                var sellingPrice = dollarPrice * 325 * 1.5;
+                var sellingPrice = dollarPrice * 335 * 1.5;
             }else if(dollarPrice>2.5){
-                var sellingPrice = dollarPrice * 325 * 1.6;
+                var sellingPrice = dollarPrice * 335 * 1.6;
             }else{
-                var sellingPrice = dollarPrice * 325 * 1.7;
+                var sellingPrice = dollarPrice * 335 * 1.7;
             }
             document.getElementById("costPrice").innerHTML = "Rs. " + Math.round(costPrice);
 
